@@ -1,6 +1,3 @@
-# Call it at /etc/rc.local
-# Set any env vars before call it
-# It
 from gpiozero import Button
 from signal import pause
 import os
