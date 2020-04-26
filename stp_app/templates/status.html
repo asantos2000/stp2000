@@ -1,7 +1,21 @@
-<h1>Status</h1>
+{% extends "bootstrap/base.html" %}
+{# Loads some of the macros included with Flask-Bootstrap. We are using the
+   utils module here to automatically render Flask's flashed messages in a
+   bootstrap friendly manner #}
+{% import "bootstrap/utils.html" as utils %}
 
-{% if component %}
-  <h1>{{ component }}!</h1>
-{% else %}
-  <h1>All components</h1>
-{% endif %}
+{% block title %}Status{% endblock %}
+
+{% block content %}
+   <h1>Status</h1>
+   {% for pin in pins %}
+      <h2>{{ pins[pin].name }}
+      {% if pins[pin].state == true %}
+         is currently <strong>on</strong></h2><div class="row"><div class="col-md-2">
+         <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">Turn off</a></div></div>
+      {% else %}
+         is currently <strong>off</strong></h2><div class="row"><div class="col-md-2">
+         <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-primary" role="button">Turn on</a></div></div>
+      {% endif %}
+   {% endfor %}
+{% endblock %}

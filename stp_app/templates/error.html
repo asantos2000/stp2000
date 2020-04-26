@@ -1,3 +1,11 @@
-<!doctype html>
-<title>STP 2000</title>
+{% extends "bootstrap/base.html" %}
+{# Loads some of the macros included with Flask-Bootstrap. We are using the
+   utils module here to automatically render Flask's flashed messages in a
+   bootstrap friendly manner #}
+{% import "bootstrap/utils.html" as utils %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
     <h1>Error {{ error }}: Page not found</h1>
+{% endblock %}

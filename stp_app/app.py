@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, abort, redirect, url_for, make_response
 from markupsafe import escape, Markup
-from time import sleep
+from rasp_hw.status import status_report
+from rasp_hw.generic_control import change_gpio
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+Bootstrap(app)
 
 @app.route('/', methods=['GET'])
-@app.route('/<name>', methods=['GET'])
 def index(name=None):
     return render_template('index.html', name=name)
 
@@ -33,10 +35,15 @@ def not_found(error):
 @app.route('/status/')
 @app.route('/status/<component>', methods=['GET'])
 def do_status(component=None):
-    resp = make_response(render_template('status.html', component=component))
+    #resp = make_response(render_template('status.html', component=component))
+    resp = status_report()
     return resp
-    return 'status %s' % escape(command)
+
+@app.route("/<changePin>/<action>")
+def action(changePin, action):
+    change_gpio(changePin   , action)
+    return redirect(url_for('do_status'))
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0', port=80, debug=True)
 

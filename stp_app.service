@@ -1,0 +1,9 @@
+[Unit]
+Description=STP2000 App
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/stp_app/app.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=GPIO Buttons control
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/buttons.py
+
+[Install]
+WantedBy=multi-user.target

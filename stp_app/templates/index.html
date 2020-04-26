@@ -1,12 +1,13 @@
-<!doctype html>
+{% extends "bootstrap/base.html" %}
+{# Loads some of the macros included with Flask-Bootstrap. We are using the
+   utils module here to automatically render Flask's flashed messages in a
+   bootstrap friendly manner #}
+{% import "bootstrap/utils.html" as utils %}
 
-<html>
-<head>
-<link rel="stylesheet" href='/static/style.css' />
-</head>
-<body>
+{% block title %}STP 2000{% endblock %}
 
-<title>STP 2000</title>
+{% block content %}
+
 {% if name %}
   <h1>STP: Hello {{ name }}!</h1>
 {% else %}
@@ -25,5 +26,4 @@
     <li><a href="/sound/off">Sound OFF</a></li>
 </ul>
 
-</body>
-</html>
+{% endblock %}
