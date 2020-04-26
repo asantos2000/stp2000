@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+<head>
+<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+
+<title>STP 2000</title>
+{% if name %}
+  <h1>STP: Hello {{ name }}!</h1>
+{% else %}
+  <h1>Hello!</h1>
+{% endif %}
+
+<h2>Commands:</h2>
+<ul>
+    <li><a href="/status/">Status</a></li>
+    <li><a href="/test/all?except-list=servo">Test all, except servo</a></li>
+    <li><a href="/led/on">Led ON</a></li>
+    <li><a href="/led/off">Led OFF</a></li>
+    <li><a href="/servo/on">Servo ON</a></li>
+    <li><a href="/servo/off">Servo OFF</a></li>
+    <li><a href="/sound/on">Sound ON</a></li>
+    <li><a href="/sound/off">Sound OFF</a></li>
+</ul>
+
+</body>
+</html>
