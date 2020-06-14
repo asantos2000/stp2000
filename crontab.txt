@@ -1,0 +1,7 @@
+2 6,7 * * * python /home/pi/play2.py
+# 15-59/2 6 * * * python /home/pi/play2.py
+# 00 6 * * * python /home/pi/servo3.py &
+*/5 6 * * * python /home/pi/servo3.py &
+# 00-59/2 6 * * * python /home/pi/led_rasp.py &
+2 6,7 * * * python /home/pi/led_rasp.py &
+00 9 * * * python sudo poweroff

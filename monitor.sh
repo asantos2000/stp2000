@@ -9,5 +9,5 @@ echo Temperature
 /opt/vc/bin/vcgencmd measure_temp
 
 # Clock speed
-echo Clock speed
+echo "Clock speed"
 vcgencmd measure_clock arm
